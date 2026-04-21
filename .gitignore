@@ -1,0 +1,14 @@
+# Wrangler local state
+.wrangler/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Node
+node_modules/
+npm-debug.log*

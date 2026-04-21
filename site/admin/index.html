@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>管理后台 · Yingjie Li</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter+Tight:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+
+  <!-- ========== LOGIN VIEW ========== -->
+  <div id="view-login" class="view view-login">
+    <div class="login-card">
+      <div class="login-mark">
+        <span class="lm-mono">YL</span>
+        <span class="lm-rule"></span>
+        <span class="lm-label">管理后台</span>
+      </div>
+      <h1>欢迎回来</h1>
+      <p class="login-sub">请输入管理员密码</p>
+      <form id="login-form" autocomplete="off">
+        <label class="field">
+          <span>密码</span>
+          <input type="password" id="login-password" required autocomplete="current-password" autofocus />
+        </label>
+        <button type="submit" class="btn btn-primary" id="login-btn">登录</button>
+        <p class="login-error" id="login-error" hidden></p>
+      </form>
+      <a href="/" class="back-link">← 返回主站</a>
+    </div>
+  </div>
+
+  <!-- ========== DASHBOARD VIEW ========== -->
+  <div id="view-dash" class="view view-dash" hidden>
+
+    <header class="topbar">
+      <div class="tb-left">
+        <a href="/" class="tb-mono" title="访问主站" target="_blank">YL</a>
+        <span class="tb-sep">·</span>
+        <span class="tb-title">管理后台</span>
+      </div>
+      <div class="tb-right">
+        <span class="save-state" id="save-state"></span>
+        <button class="btn btn-primary" id="save-btn" disabled>保存所有更改</button>
+        <button class="btn btn-ghost" id="logout-btn">退出</button>
+      </div>
+    </header>
+
+    <nav class="sidebar">
+      <a href="#hero"        class="nav-item is-active" data-section="hero">首页大图</a>
+      <a href="#bio"         class="nav-item" data-section="bio">个人简介</a>
+      <a href="#works"       class="nav-item" data-section="works">作品列表</a>
+      <a href="#exhibitions" class="nav-item" data-section="exhibitions">展览经历</a>
+      <a href="#contact"     class="nav-item" data-section="contact">联系方式</a>
+    </nav>
+
+    <main class="content">
+
+      <!-- ============ HERO ============ -->
+      <section class="panel" id="panel-hero">
+        <div class="panel-head">
+          <h2>首页大图</h2>
+          <p class="hint">主页顶部铺满的画作。从下方"作品列表"中选择一幅。</p>
+        </div>
+        <div class="hero-picker">
+          <div class="hero-current">
+            <div class="hero-preview-wrap">
+              <img id="hero-preview" alt="Hero preview" />
+            </div>
+            <div class="hero-meta">
+              <div class="kv"><span>编号</span><strong id="hero-num">—</strong></div>
+              <div class="kv"><span>标题</span><strong id="hero-title">—</strong></div>
+              <div class="kv"><span>年份</span><strong id="hero-year">—</strong></div>
+            </div>
+          </div>
+          <div class="hero-list-wrap">
+            <p class="hint" style="margin-bottom:.6rem">点击下方任一作品作为首页大图</p>
+            <div class="hero-list" id="hero-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ BIO ============ -->
+      <section class="panel" id="panel-bio" hidden>
+        <div class="panel-head">
+          <h2>个人简介</h2>
+          <p class="hint">支持基础 HTML 标签:<code>&lt;strong&gt;</code> <code>&lt;em&gt;</code> <code>&lt;a href="..."&gt;</code></p>
+        </div>
+        <label class="field">
+          <span>引用语(显示在简介左侧)</span>
+          <textarea id="bio-quote" rows="2" placeholder="一句话艺术家自述"></textarea>
+        </label>
+        <div class="paragraphs">
+          <div class="ph-head">
+            <span>段落正文(每个文本框是一段)</span>
+            <button class="btn btn-ghost btn-sm" id="bio-add">+ 加一段</button>
+          </div>
+          <div id="bio-paragraphs"></div>
+        </div>
+      </section>
+
+      <!-- ============ WORKS ============ -->
+      <section class="panel" id="panel-works" hidden>
+        <div class="panel-head">
+          <h2>作品列表</h2>
+          <p class="hint">上传新画作时,系统会自动缩放到 1500px 宽并压缩,效果更快加载。</p>
+        </div>
+
+        <!-- Upload zone -->
+        <div class="uploader" id="uploader">
+          <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden multiple />
+          <div class="up-icon">
+            <svg viewBox="0 0 48 48" width="36" height="36"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M24 30V8m-8 8 8-8 8 8M8 32v6a4 4 0 004 4h24a4 4 0 004-4v-6"/></svg>
+          </div>
+          <p class="up-title">点击或拖拽图片到此处上传</p>
+          <p class="up-sub">JPEG / PNG / WebP · 一次可选多张</p>
+        </div>
+        <div id="upload-queue" class="upload-queue"></div>
+
+        <!-- Existing works -->
+        <div class="works-grid" id="works-grid"></div>
+      </section>
+
+      <!-- ============ EXHIBITIONS ============ -->
+      <section class="panel" id="panel-exhibitions" hidden>
+        <div class="panel-head">
+          <h2>展览经历</h2>
+          <p class="hint">按顺序显示。可拖拽排序。</p>
+          <button class="btn btn-ghost btn-sm" id="ex-add">+ 加一条</button>
+        </div>
+        <div id="ex-list"></div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="panel" id="panel-contact" hidden>
+        <div class="panel-head">
+          <h2>联系方式</h2>
+          <p class="hint">这些链接出现在页脚和"联系我"区。</p>
+        </div>
+        <label class="field">
+          <span>邮箱</span>
+          <input type="email" id="contact-email" />
+        </label>
+        <label class="field">
+          <span>Etsy 商店链接</span>
+          <input type="url" id="contact-etsy" />
+        </label>
+        <label class="field">
+          <span>Visual Expansion Gallery 链接</span>
+          <input type="url" id="contact-gallery" />
+        </label>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Edit modal for individual work -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h3 id="modal-title">编辑作品</h3>
+      <div class="modal-body">
+        <div class="modal-preview">
+          <img id="modal-img" alt="" />
+        </div>
+        <div class="modal-fields">
+          <label class="field"><span>标题</span><input type="text" id="m-title" /></label>
+          <label class="field"><span>年份</span><input type="number" id="m-year" min="1900" max="2100" /></label>
+          <label class="field"><span>编号(自动)</span><input type="text" id="m-num" disabled /></label>
+          <label class="field field-row">
+            <input type="checkbox" id="m-gallery" />
+            <span>当前在 Visual Expansion Gallery 展出(显示金色"On view"标签)</span>
+          </label>
+          <div class="modal-actions">
+            <button class="btn btn-danger" id="m-delete">删除作品</button>
+            <button class="btn btn-primary" id="m-save">保存修改</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="/admin/admin.js" type="module"></script>
+</body>
+</html>

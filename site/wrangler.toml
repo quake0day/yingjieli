@@ -1,0 +1,11 @@
+name = "yingjieliartist"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "."
+
+[[kv_namespaces]]
+binding = "YL_DATA"
+id = "bbed5ce0f0954546bf5c58bd5b8f1f80"
+
+[[r2_buckets]]
+binding = "YL_IMAGES"
+bucket_name = "yl-images"

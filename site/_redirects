@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects
+# Legacy paths from the old site → new structure
+
+/index.html      /          301

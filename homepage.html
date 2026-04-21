@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Yingjie Li's Online Gallery</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Lato|Alegreya:700italic,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="gallery-grid.css">
+        
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171521339-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-8217718-11');
+    </script>
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+         $(function(){
+
+           $('a > img[style]').each(function(){
+               $el = $(this);
+               var style = $el.attr('style');
+               $el.attr('style','');
+               $el.parent().attr('style',style);
+            }); //Moves the inline styles
+
+              $("img").each(function(){
+                  var title = this.alt;
+                  $(this).after('<div class="caption text-center mask">'+ title +'</div>');
+              }); //Adds the dynamic captions.
+         }); 
+    </script>
+</head>
+<body>
+        <div class="container gallery-container">
+                            <h1 class="name">Yingjie Li</h1>
+                            <!--<ul class="artist-mediums"><li>oil & acrylic</li><li>pen & ink</li><li>prints</li></ul>-->
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h3 class="text-white"><i class="fas fa-user"></i> Biography</h3>
+              <p class="page-description">Born in China, <strong>Yingjie Li</strong> is a self-taught artist. Holding a Ph.D in Biochemistry from Rutgers, the State University of New Jersey. Yingjie has lifelong interest in art and has been inspired to draw and paint since childhood. Yingjie is now living with her husband and two kids in West Chester, PA. She is a member of Chester County Art Association and has received awards and honors on her artwork. <br />
+              <br />
+              <strong>To purchase giclée prints: <a href="https://www.etsy.com/shop/CuriousJCArt?ref=listing-shop-header-item-count#items" target="_blank">CuriousJCArt on Etsy</a> </strong>
+
+              </p>
+
+              <h3 class="text-white"><i class="fas fa-palette"></i> Exhibition</h3>
+
+         <ul>
+            <li>Chester County Art Association West Chester Galleries, PA</li>
+            <li>Exton Square Studio Gallery, PA</li>
+            <li><a href="https://visualexpansiongallery.com/yingjie-li/" target="_blank">Visual Expansion Gallery</a>, PA</li>
+            <li>Barbara Moore Fine Art Gallery, PA</li>
+        </ul>
+
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h3 class="text-white"><i class="fas fa-address-card"></i> Contact Me</h3>
+              <ul class="list-unstyled">
+                <li><a href="https://www.etsy.com/shop/CuriousJCArt?ref=listing-shop-header-item-count#items" class="text-white"><i class="fab fa-etsy"></i> Etsy</a></li>
+
+                <li><a href="mailto:yingjie.ly@gmail.com" class="text-white"><i class="fa fa-envelope"></i> Email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container gallery-container">
+
+
+             <div class="center_top">
+                       
+
+   <!-- <p class="page-description text-center">Fluid Layout With Overlay Effect</p> -->
+    
+    <div class="tz-gallery">
+
+        <div class="row">
+
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art1_2013.jpg">
+                    <img src="../images/Art1_2013.jpg" alt="Moon dancer (2013)">
+
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art2_2014.jpg">
+                    <img src="../images/Art2_2014.jpg" alt="Clock (2014)">
+                </a>
+            </div>
+            <div class="col-sm-12 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art3_2014.jpg">
+                    <img src="../images/Art3_2014.jpg" alt="Pig in the Forest (2014)">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art4_2015.jpg">
+                    <img src="../images/Art4_2015.jpg" alt="Once upon a Time (2015)">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art5_2016.jpg">
+                    <img src="../images/Art5_2016.jpg" alt="Girl on Pig (2016)">
+                </a>
+            </div> 
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art6_2016.jpg">
+                    <img src="../images/Art6_2016.jpg" alt="Relief (2016)">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art7_2016.jpg">
+                    <img src="../images/Art7_2016.jpg" alt="Siren (2016)">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art8_2016.jpg">
+                    <img src="../images/Art8_2016.jpg" alt="Train is Coming to Town (2016)">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art9_2017.jpg">
+                    <img src="../images/Art9_2017.jpg" alt="Magic Forest (2017)">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art10_2018.jpg">
+                    <img src="../images/Art10_2018.jpg" alt="Hide and Seek (2018)">
+                </a>
+            </div>
+             <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art11_2018.jpg">
+                    <img src="../images/Art11_2018.jpg" alt="Tea Party (2018)">
+                </a>
+            </div>
+             <div class="col-sm-6 col-md-4 imageHolder">
+                <a class="lightbox" href="../images/Art12_2018.jpg">
+                    <img src="../images/Art12_2018.jpg" alt="T is for Terrific Things (2018)">
+                </a>
+            </div>
+             
+        </div>
+
+    </div>
+
+</div>
+<!-- Footer -->
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-center"> <h5><strong>Disclaimer:</strong>
+All copyrights to these images remain with the artist, its creator. Any unauthorized reproduction is in violation of US copyright law. <i class="far fa-copyright"></i> 2020 Yingjie Li</h5>
+      </p>
+
+    </div>
+</div>
+<!-- Footer -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+
+
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5efe267f2ec7b781"></script>
+
+</body>
+</html>
