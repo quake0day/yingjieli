@@ -1,0 +1,44 @@
+apiVersion: capsule.dev/v0.1
+kind: Capsule
+
+name: test-push-demo
+version: 0.1.0
+type: subsystem
+domain: yingjieli.test
+
+maintainers:
+  - name: Quake
+    email: quake0day@gmail.com
+
+purpose:
+  summary: |
+    Tiny capsule used to smoke-test the L3 `capsule push` flow. Lives in
+    the public yingjieli repo so the registry server can fetch it. Has no
+    runtime; exists only to exercise the end-to-end publish path against
+    https://capsule-registry.pages.dev.
+  owns:
+    - the act of being pushed by `capsule push` and resolved via the registry KV overlay
+  does_not_own:
+    - any real behaviour
+
+interfaces:
+  provides: []
+  requires: []
+
+dependencies:
+  capsules: []
+  runtime: []
+
+agent:
+  summary_for_ai: |
+    This capsule has no runtime. If you find yourself reading this in an
+    agent context, the push pipeline worked — close the loop and move on.
+  avoid:
+    - extending this capsule with real behaviour; that defeats its purpose
+
+verification:
+  health_checks: []
+  functional_tests: []
+  integration_tests: []
+  invariants:
+    - "the capsule pushed by `capsule push` must round-trip via /api/v1/resolve to its KV-stored entry"
